@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="TraceavitProDesktop.views.dialogs.AttentionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:dialogs="clr-namespace:TraceavitProDesktop.viewModels.dialogs"
+             mc:Ignorable="d" xmlns:r="clr-namespace:TraceavitProDesktop.assets"
+             d:DesignHeight="768" d:DesignWidth="1024"
+             d:DataContext="{d:DesignInstance dialogs:AttentionViewModel}">
+
+    <Grid>
+        <Grid Background="Gray" Opacity="0.6" />
+        <Grid Background="#F9E5A6" Height="600" Width="800">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="16" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="16" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="16" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <materialDesign:PackIcon Kind="{Binding IconKind}" Grid.Row="1"  Style="{StaticResource Icon148White}" />
+
+            <TextBlock Text="{Binding Message}"
+                       Grid.Row="3" HorizontalAlignment="Center" Foreground="White"
+                       FontSize="32" FontWeight="Bold" Width="640" TextAlignment="Center" TextWrapping="Wrap" />
+            <TextBlock Text="{Binding SubMessage}"
+                       Foreground="White"
+                       FontSize="26" Width="516" TextWrapping="Wrap" TextAlignment="Center"
+                       Grid.Row="5" HorizontalAlignment="Center" />
+
+            <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="4"
+                        Visibility="{Binding TwoChoiceVisibility,Converter={StaticResource InverseBooleanToVisibilityConverter}}"
+                        Content="Продовжити"
+                        Command="{Binding NextCommand}"
+                        Style="{StaticResource ButtonWhite}" />
+
+                <Button Margin="4" Opacity="0.4"
+                        Visibility="{Binding TwoChoiceVisibility,Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Content="{Binding LeftButtonContent}"
+                        Command="{Binding ChoiceLeftCommand}"
+                        Style="{StaticResource ButtonWhite}" />
+
+                <Button Margin="4"
+                        Visibility="{Binding TwoChoiceVisibility,Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Content="{Binding RightButtonContent}"
+                        Command="{Binding ChoiceRightCommand}"
+                        Style="{StaticResource ButtonWhite}" />
+
+
+            </StackPanel>
+
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="TraceavitProDesktop.views.operation.print.PrintRepeatView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:controls="clr-namespace:TraceavitProDesktop.controls"
+             mc:Ignorable="d" xmlns:r="clr-namespace:TraceavitProDesktop.assets"
+             xmlns:traceavitProDesktop="clr-namespace:TraceavitProDesktop"
+             xmlns:print="clr-namespace:TraceavitProDesktop.viewModels.print"
+             d:DesignHeight="768" d:DesignWidth="1024"
+             FontFamily="{StaticResource HelveticaNeueCyr}"
+             d:DataContext="{d:DesignInstance print:PrintRepeatViewModel,IsDesignTimeCreatable=True}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <controls:TopAppBar Title="{x:Static r:Strings.PrintRepeatView_TopAppBar_Title}" />
+
+        <TextBox Grid.Row="2" x:Name="SearchBox" Width="300" 
+                 materialDesign:HintAssist.Hint="{x:Static r:Strings.PrintRepeatView_SearchBox_Hint}"
+                 materialDesign:HintAssist.FloatingScale="1"
+                 materialDesign:HintAssist.FloatingHintHorizontalAlignment="Left"
+                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                 materialDesign:TextFieldAssist.HasClearButton="True"
+                 materialDesign:TextFieldAssist.TextFieldCornerRadius="8"
+                 SelectedText="3"
+                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                 Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}" />
+
+        <ListBox Grid.Row="4" Height="125" Width="300"
+                 BorderThickness="1" BorderBrush="LightGray"
+                 materialDesign:ScrollViewerAssist.BubbleVerticalScroll="True"
+                 materialDesign:ScrollBarAssist.ThumbCornerRadius="5"
+                 Background="{StaticResource tpBlueBG}">
+            <ListBoxItem>12312312312</ListBoxItem>
+            <ListBoxItem>12312312313</ListBoxItem>
+            <ListBoxItem>12312312314</ListBoxItem>
+            <ListBoxItem>12312312315</ListBoxItem>
+            <ListBoxItem>12312312316</ListBoxItem>
+            <ListBoxItem>12312312317</ListBoxItem>
+            <ListBoxItem>12312312318</ListBoxItem>
+        </ListBox>
+
+        <controls:KeyboardNumControl Grid.Row="6" />
+
+        <controls:BottomSection Grid.Row="8">
+            <Button Content="{x:Static r:Strings.PrintRepeatView_Button_Content}" />
+        </controls:BottomSection>
+    </Grid>
+</UserControl>

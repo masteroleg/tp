@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="TraceavitProDesktop.views.operation.jobs.JobContinueView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TraceavitProDesktop.views.operation"
+             xmlns:viewModels="clr-namespace:TraceavitProDesktop.viewModels"
+             xmlns:jobs="clr-namespace:TraceavitProDesktop.viewModels.jobs"
+             mc:Ignorable="d" xmlns:r="clr-namespace:TraceavitProDesktop.assets"
+             xmlns:controls="clr-namespace:TraceavitProDesktop.controls"
+             d:DesignHeight="768" d:DesignWidth="1024"
+             d:DataContext="{d:DesignInstance jobs:JobContinueViewModel}">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <controls:TopAppBar Title="Завдання" Command="{Binding BackCommand}"/>
+
+        <controls:ProductCard Grid.Row="1" VerticalAlignment="Center" 
+                                DataContext="{Binding Product}"
+                          
+        />
+
+
+        <controls:BottomSection Grid.Row="2">
+            <Button Content="Продовжити виконання" Command="{Binding NextCommand}"/>
+            <Button Content="Обрати нове завдання" Command="{Binding NextCommand}" Opacity="0.6"/>
+        </controls:BottomSection>
+
+    </Grid>
+</UserControl>

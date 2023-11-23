@@ -1,0 +1,120 @@
+﻿<UserControl
+    x:Class="TraceavitProDesktop.views.operation.jobs.process.JobProcessView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+    xmlns:vm="clr-namespace:TraceavitProDesktop.viewModels.jobs"
+    mc:Ignorable="d"
+    xmlns:r="clr-namespace:TraceavitProDesktop.assets"
+    xmlns:jobs="clr-namespace:TraceavitProDesktop.views.operation.jobs"
+    xmlns:process="clr-namespace:TraceavitProDesktop.views.operation.jobs.process"
+    xmlns:models="clr-namespace:TraceavitProDesktop.models"
+    d:DesignHeight="768" d:DesignWidth="1024"
+    d:DataContext="{d:DesignInstance vm:JobProcessViewModel}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24" />
+            <ColumnDefinition Width="385" />
+            <ColumnDefinition Width="16" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="24" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="84" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="322" />
+            <RowDefinition Height="16" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="14" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+
+        <process:JobProcessHeader Grid.ColumnSpan="5" Grid.Column="0" Grid.Row="1" DataContext="{Binding}"
+                                  Margin="8,0,8,0" />
+
+        <Image Grid.Row="3" Grid.Column="1" StretchDirection="Both"
+               HorizontalAlignment="Center"
+               Source="{Binding Job.ArticleRef.ArticleProductImage,Converter={StaticResource ByteArrayToImageConverter}}"
+               Grid.RowSpan="3" />
+
+        <Border Grid.Row="3" Grid.Column="3" CornerRadius="14" Background="{StaticResource tpBlack}">
+            <TextBlock Foreground="{StaticResource tpBlueMain}"
+                       Text="{Binding Job.ArticleRef.ArticleProductName}"
+                       FontSize="32"
+                       VerticalAlignment="Center"
+                       Margin="22 0 0 0" />
+        </Border>
+
+        <process:JobProcessLablerIndicator 
+            Visibility="{Binding StationType,
+                                 Converter={StaticResource StationTypeToVisibilityConverter},
+                                 ConverterParameter={x:Static models:StationType.Labeler}}" 
+            Grid.Row="5" Grid.Column="3"/>
+        <process:JobProcessPackerIndicator  
+            Visibility="{Binding StationType,
+                     Converter={StaticResource StationTypeToVisibilityConverter},
+                     ConverterParameter={x:Static models:StationType.Packer}}" 
+            Grid.Row="5" Grid.Column="3"/>
+        <process:JobProcessPackerNoBoxIndicator  
+            Visibility="{Binding StationType,
+                     Converter={StaticResource StationTypeToVisibilityConverter},
+                     ConverterParameter={x:Static models:StationType.PackerNoBox}}" 
+            Grid.Row="5" Grid.Column="3"/>
+
+        <Button Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3"
+                Style="{StaticResource ButtonWhiteJob}"
+                HorizontalAlignment="Left"
+                Command="{Binding PrintRepeatCommand}">
+
+            <StackPanel Orientation="Horizontal">
+                <wpf:PackIcon Kind="Printer" Style="{StaticResource Icon24}" />
+                <TextBlock Text="Повторний друк етикетки" VerticalAlignment="Center" Margin="8 0 0 0"/>
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Row="7" Grid.Column="3"
+                HorizontalAlignment="Right"
+                Style="{StaticResource ButtonWhiteJob}"
+                Command="{Binding PrintPaletteCommand}"
+                 >
+            <StackPanel Orientation="Horizontal">
+                <wpf:PackIcon Kind="ShippingPallet"  Style="{StaticResource Icon24}"/>
+                <TextBlock Text="Друк етикетки палети" VerticalAlignment="Center" Margin="8 0 0 0" />
+            </StackPanel>
+        </Button>
+
+        <process:JobProcessStatus Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" />
+
+        <Button Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,14,0,0"
+                Style="{StaticResource ButtonWhiteJob}"
+                HorizontalAlignment="Left"
+                Visibility="{Binding StationType,
+                             Converter={StaticResource StationTypeToVisibilityNegativeConverter},
+                             ConverterParameter={x:Static models:StationType.Labeler}}" >
+            <StackPanel Orientation="Horizontal">
+                <wpf:PackIcon Kind="HandBackLeft" Style="{StaticResource Icon24}"/>
+                <TextBlock Text="Ручне наповнення" VerticalAlignment="Center" Margin="8 0 0 0"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3" Margin="0 14 0 0"
+                Style="{StaticResource ButtonWhiteJob}"
+                HorizontalAlignment="Right"
+                Visibility="{Binding Path=StationType, 
+            Converter={StaticResource StationTypeToVisibilityConverter},
+            ConverterParameter={x:Static models:StationType.Packer}}">
+            <StackPanel Orientation="Horizontal">
+                <wpf:PackIcon Kind="PackageVariantClosed" Style="{StaticResource Icon24}" />
+                <TextBlock Text="Друк етикетки ящика" VerticalAlignment="Center" Margin="8 0 0 0"/>
+            </StackPanel>
+        </Button>
+
+
+    </Grid>
+</UserControl>

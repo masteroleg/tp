@@ -1,0 +1,172 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <ApplicationIcon>assets\block.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="assets\icons\**" />
+      <EmbeddedResource Remove="assets\icons\**" />
+      <None Remove="assets\icons\**" />
+      <Page Remove="assets\icons\**" />
+    </ItemGroup>
+
+	<ItemGroup>
+      <Compile Remove="models\view\MessageData.cs" />
+      <Compile Remove="models\view\MessageDataResult.cs" />
+      <Compile Remove="viewModels\jobs\JobProcessPackerBoxViewModel.cs" />
+      <Compile Remove="viewModels\jobs\JobProcessPackerNoBoxViewModel.cs" />
+      <Compile Update="assets\Strings.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Strings.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="assets\c.png" />
+      <None Remove="assets\fonts\HelveticaNeueBlackCondensed.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueBoldCondensed.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-Black.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-BlackItalic.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-Bold.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-BoldItalic.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-Heavy.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-HeavyItalic.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-Italic.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-Light.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-LightItalic.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-Medium.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-MediumItalic.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-Roman.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-Thin.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-ThinItalic.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-UltraLight.ttf" />
+      <None Remove="assets\fonts\HelveticaNeueCyr-UltraLightItalic.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="assets\block.ico" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Resource Include="assets\c.png">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueBlackCondensed.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueBoldCondensed.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-Black.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-BlackItalic.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-Bold.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-BoldItalic.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-Heavy.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-HeavyItalic.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-Italic.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-Light.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-LightItalic.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-Medium.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-MediumItalic.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-Roman.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-Thin.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-ThinItalic.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-UltraLight.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="assets\fonts\HelveticaNeueCyr-UltraLightItalic.ttf">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="DevExpress.Mvvm.CodeGenerators" Version="22.1.1" />
+      <PackageReference Include="DevExpressMvvm" Version="22.1.3" />
+      <PackageReference Include="Mapster" Version="7.4.0" />
+      <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
+      <PackageReference Include="Mapster.Immutable" Version="1.0.1" />
+      <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+      <PackageReference Include="MediatR" Version="12.1.1" />
+      <PackageReference Include="MediatR.Contracts" Version="2.0.1" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="PropertyTools.Wpf" Version="3.1.0" />
+      <PackageReference Include="protobuf-net.Grpc.ClientFactory" Version="1.1.1" />
+      <PackageReference Include="Scrutor" Version="4.2.2" />
+      <PackageReference Include="Serilog" Version="3.0.1" />
+      <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+      <PackageReference Include="Serilog.Sinks.RichTextBox.Wpf" Version="1.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LogictimeProtobuf\Logictime.Protobuf\Logictime.Protobuf.csproj" />
+      <ProjectReference Include="..\TracevitPro.messageBus\TracevitPro.messageBus.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="viewModels\mainVm\MainWindowViewModel.cs">
+        <DependentUpon>MainWindow.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="views\jobs\Job.Continue.ActualCount.View.xaml.cs">
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="configuration.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="assets\Strings.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="backApi\getJobData\" />
+    </ItemGroup>
+
+</Project>

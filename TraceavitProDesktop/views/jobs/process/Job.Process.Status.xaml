@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="TraceavitProDesktop.views.operation.jobs.process.JobProcessStatus"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TraceavitProDesktop.views.operation.jobs"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:jobs="clr-namespace:TraceavitProDesktop.viewModels.jobs"
+             xmlns:models="clr-namespace:TraceavitProDesktop.models"
+             xmlns:process="clr-namespace:TraceavitProDesktop.views.operation.jobs.process"
+             mc:Ignorable="d"
+             d:DesignHeight="100"
+             FontFamily="{StaticResource HelveticaNeueCyr}"
+             FontSize="14"
+             d:DataContext="{d:DesignInstance jobs:JobProcessViewModel}">
+    <UserControl.Resources>
+        <process:Ticker x:Key="ticker" />
+        <Style TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="10" />
+        </Style>
+
+        <Style TargetType="Border">
+            <Setter Property="CornerRadius" Value="14" />
+            <Setter Property="Background" Value="{StaticResource tpBlue2BG}" />
+        </Style>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="480" />
+            <ColumnDefinition Width="16" />
+            <ColumnDefinition Width="480" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" >
+
+
+            <Grid>
+                <Grid Visibility="{Binding StationType,Converter={StaticResource StationTypeToVisibilityConverter},ConverterParameter={x:Static models:StationType.Packer}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackPanel Grid.Column="0">
+                        <materialDesign:PackIcon Kind="PropaneTankOutline" Style="{StaticResource Icon24Blue2}" />
+                        <TextBlock Text="Каністр" VerticalAlignment="Center" />
+                        <TextBlock Text="55" VerticalAlignment="Center" FontSize="14"
+                                   Foreground="{StaticResource ResourceKey=tpBlue2}" FontWeight="Bold"
+                                   Margin="14 0 0 0" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <materialDesign:PackIcon Kind="PackageVariantClosed" VerticalAlignment="Center" Width="24"
+                                                 Height="24"
+                                                 Foreground="{StaticResource tpBlue2}" />
+                        <TextBlock Text="Ящиків" VerticalAlignment="Center" FontSize="14" />
+                        <TextBlock Text="1" VerticalAlignment="Center" FontSize="14"
+                                   Foreground="{StaticResource tpBlue2}" FontWeight="Bold" Margin="14 0 0 0" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <materialDesign:PackIcon Kind="ShippingPallet" VerticalAlignment="Center" Width="24"
+                                                 Height="24"
+                                                 Foreground="{StaticResource tpBlue2}" />
+                        <TextBlock Text="Паллет" VerticalAlignment="Center" />
+                        <TextBlock Text="1" VerticalAlignment="Center"
+                                   Foreground="{StaticResource tpBlue2}" FontWeight="Bold" Margin="14 0 0 0" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid Visibility="{Binding StationType,Converter={StaticResource StationTypeToVisibilityNegativeConverter},ConverterParameter={x:Static models:StationType.Packer}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackPanel Grid.Column="0">
+                        <materialDesign:PackIcon Kind="PropaneTankOutline" Style="{StaticResource Icon24Blue2}" />
+                        <TextBlock Text="Каністр" VerticalAlignment="Center" />
+                        <TextBlock Text="55" VerticalAlignment="Center" FontSize="14"
+                                   Foreground="{StaticResource ResourceKey=tpBlue2}" FontWeight="Bold"
+                                   Margin="14 0 0 0" />
+                    </StackPanel>
+                    
+                    <StackPanel Grid.Column="1">
+                        <materialDesign:PackIcon Kind="ShippingPallet" VerticalAlignment="Center" Width="24"
+                                                 Height="24"
+                                                 Foreground="{StaticResource tpBlue2}" />
+                        <TextBlock Text="Паллет" VerticalAlignment="Center" />
+                        <TextBlock Text="1" VerticalAlignment="Center"
+                                   Foreground="{StaticResource tpBlue2}" FontWeight="Bold" Margin="14 0 0 0" />
+                    </StackPanel>
+                </Grid>
+
+            </Grid>
+
+
+        </Border>
+
+        <Border Grid.Column="2" HorizontalAlignment="Stretch">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <materialDesign:PackIcon Kind="ClockOutline" VerticalAlignment="Center" Width="24" Height="24"
+                                             Foreground="{StaticResource tpBlue2}" />
+                    <TextBlock Text="Робота" VerticalAlignment="Center" />
+                    <TextBlock Text="{Binding Source={StaticResource ticker }, Path=CurrentTime,StringFormat='HH:mm'}"
+                               VerticalAlignment="Center" 
+                               Foreground="{StaticResource tpBlue2}" FontWeight="Bold" Margin="14 0 0 0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="3" Margin="10">
+                    <materialDesign:PackIcon Kind="HandBackLeft" VerticalAlignment="Center" Width="24"
+                                             Height="24"
+                                             Foreground="{StaticResource tpBlue2}" />
+                    <TextBlock Text="Зупинки" VerticalAlignment="Center" FontSize="14" />
+                    <TextBlock Text="01:03:20" VerticalAlignment="Center" FontSize="14"
+                               Foreground="{StaticResource tpBlue2}" FontWeight="Bold" Margin="14 0 0 0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="5" Margin="10">
+                    <materialDesign:PackIcon Kind="Counter" VerticalAlignment="Center" Width="24"
+                                             Height="24"
+                                             Foreground="{StaticResource tpBlue2}" />
+                    <TextBlock Text="Кількість" VerticalAlignment="Center" FontSize="14" />
+                    <TextBlock Text="5" VerticalAlignment="Center" FontSize="14"
+                               Foreground="{StaticResource tpBlue2}" FontWeight="Bold" Margin="14 0 0 0" />
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

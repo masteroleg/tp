@@ -1,0 +1,7 @@
+﻿{
+  "Server": "http://78.137.12.2:5289",
+  /*"Server": "http://127.0.0.1:10500",*/
+  "DevConsole": true,
+  "StationId": 101,
+  "StationType": "Labeler" //Labeler Packer
+}

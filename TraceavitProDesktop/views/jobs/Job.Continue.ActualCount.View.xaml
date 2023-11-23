@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="TraceavitProDesktop.views.operation.jobs.JobContinueActualCountView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:TraceavitProDesktop.controls"
+
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:jobs="clr-namespace:TraceavitProDesktop.viewModels.jobs"
+             mc:Ignorable="d" xmlns:r="clr-namespace:TraceavitProDesktop.assets"
+             d:DesignHeight="768" d:DesignWidth="1024"
+             d:DataContext="{d:DesignInstance jobs:JobContinueActualCountViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition  Height="16"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <controls:TopAppBar Title="Введіть актуальну кількість на лінії" Command="{Binding BackCommand}" />
+
+        <TextBox Grid.Row="2" Width="400" materialDesign:HintAssist.Hint="Введіть кількість"
+                 Text="{Binding ElementName=keyboard,Path=InputString}" Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+
+        <controls:KeyboardNumControl Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <controls:BottomSection Grid.Row="6">
+            <Button Grid.Row="5" Width="120" Content="Підтвержую" />
+        </controls:BottomSection>
+    </Grid>
+</UserControl>

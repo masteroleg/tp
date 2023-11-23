@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="TraceavitProDesktop.controls.VirtualKeyboardControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:TraceavitProDesktop.controls"
+             mc:Ignorable="d" xmlns:r="clr-namespace:TraceavitProDesktop.assets"
+             d:DataContext="{d:DesignInstance controls:VirtualKeyboardControl}">
+    <UserControl.Resources>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatMidBgButton}">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Command" Value="{Binding PressKeyCommand}" />
+            <Setter Property="Width" Value="60" />
+            <Setter Property="FontSize" Value="18" />
+            <!--<Setter Property="Border.CornerRadius" Value="6" />-->
+            
+        </Style>
+
+        <Style TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="120" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Content="1" CommandParameter="1" />
+            <Button Content="2" CommandParameter="2" />
+            <Button Content="3" CommandParameter="3" />
+            <Button Content="4" CommandParameter="4" />
+            <Button Content="5" CommandParameter="5" />
+            <Button Content="6" CommandParameter="6" />
+            <Button Content="7" CommandParameter="7" />
+            <Button Content="8" CommandParameter="8" />
+            <Button Content="9" CommandParameter="9" />
+            <Button Content="0" CommandParameter="0" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <Button Content="{Binding Q}" CommandParameter="Й" />
+            <Button Content="{Binding W}" CommandParameter="Ц" />
+            <Button Content="{Binding E}" CommandParameter="У" />
+            <Button Content="{Binding R}" CommandParameter="К" />
+            <Button Content="{Binding T}" CommandParameter="Е" />
+            <Button Content="{Binding Y}" CommandParameter="Н" />
+            <Button Content="{Binding U}" CommandParameter="Г" />
+            <Button Content="{Binding I}" CommandParameter="Ш" />
+            <Button Content="{Binding O}" CommandParameter="Щ" />
+            <Button Content="{Binding P}" CommandParameter="З" />
+            <Button Content="{Binding XX}" CommandParameter="Х" />
+            <Button Content="{Binding II}" CommandParameter="Ї" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <Button Content="{Binding A}" CommandParameter="Ф" />
+            <Button Content="{Binding S}" CommandParameter="І" />
+            <Button Content="{Binding D}" CommandParameter="В" />
+            <Button Content="{Binding F}" CommandParameter="А" />
+            <Button Content="{Binding G}" CommandParameter="П" />
+            <Button Content="{Binding H}" CommandParameter="Р" />
+            <Button Content="{Binding J}" CommandParameter="О" />
+            <Button Content="{Binding K}" CommandParameter="Л" />
+            <Button Content="{Binding L}" CommandParameter="Д" />
+            <Button Content="{Binding GG}" CommandParameter="Ж" />
+            <Button Content="{Binding EE}" CommandParameter="Є" />
+
+
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0">
+            <Button Content="{Binding Z}" CommandParameter="Я" />
+            <Button Content="{Binding X}" CommandParameter="Ч" />
+            <Button Content="{Binding C}" CommandParameter="С" />
+            <Button Content="{Binding V}" CommandParameter="М" />
+            <Button Content="{Binding B}" CommandParameter="И" />
+            <Button Content="{Binding N}" CommandParameter="Т" />
+            <Button Content="{Binding M}" CommandParameter="Ь" />
+            <Button Content="{Binding BB}" CommandParameter="Б" />
+            <Button Content="{Binding UU}" CommandParameter="Ю" />
+
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0">
+
+            <Button Content="CAPS" Width="100"  />
+            <Button Content="Space" Width="420" CommandParameter=" " />
+
+            <Button Content="," CommandParameter="{x:Static Key.M}" />
+            <Button Content="." CommandParameter="{x:Static Key.Space}" />
+        </StackPanel>
+
+
+        <Button Grid.Row="0" Grid.Column="1" Content="BACK" Width="100" />
+        <Button Grid.Row="1" Grid.Column="1" Content="DELETE" Width="100" />
+        <Button Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Height="90" Width="100" Content="ENTER"  />
+
+    </Grid>
+</UserControl>

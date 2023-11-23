@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="TraceavitProDesktop.views.operation.start.WelcomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:start="clr-namespace:TraceavitProDesktop.viewModels.start"
+             mc:Ignorable="d" xmlns:r="clr-namespace:TraceavitProDesktop.assets"
+             d:DesignHeight="768" d:DesignWidth="1024"
+             FontFamily="{StaticResource HelveticaNeueCyr}"
+             d:DataContext="{d:DesignInstance start:WelcomeViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="16"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <materialDesign:PackIcon Grid.Row="1" Kind="EmoticonOutline"  Style="{StaticResource Icon148}" />
+        <TextBlock Grid.Row="3" Text="{x:Static r:Strings.WelcomeViewMsg}" Style="{StaticResource ViewMsgRow1}" />
+        <TextBlock Grid.Row="5" Text="{Binding UserName}"                   Style="{StaticResource ViewMsgRow1}"  />
+        <TextBlock Grid.Row="7" Text="{x:Static r:Strings.WelcomeViewMsg2}" Style="{StaticResource ViewMsgRow2}" />
+    </Grid>
+</UserControl>

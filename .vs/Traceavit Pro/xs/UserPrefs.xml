@@ -1,0 +1,29 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="TraceavitProDesktop/views/operation/StartShiftConfirm.xaml">
+    <Files>
+      <File FileName="TraceavitProDesktop/views/operation/StartShiftConfirm.xaml" Line="40" Column="1" />
+      <File FileName="TraceavitProDesktop/views/operation/Login.xaml" Line="20" Column="44" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Traceavit Pro" expanded="True">
+            <Node name="TraceavitProDesktop" expanded="True">
+              <Node name="views" expanded="True">
+                <Node name="operation" expanded="True">
+                  <Node name="StartShiftConfirm.xaml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+</Properties>
